@@ -34,7 +34,8 @@ class YogaDatabase {
     ${YogaModel.IDName} $idType,
     ${YogaModel.YogaName} $textType,
     ${YogaModel.ImageName} $textType,
-    ${YogaModel.SecondsOrNot} $boolType
+    ${YogaModel.SecondsOrNot} $boolType,
+    ${YogaModel.SecondsOrTimes} $textType
     )''');
 
     await db.execute('''
@@ -42,7 +43,8 @@ class YogaDatabase {
     ${YogaModel.IDName} $idType,
     ${YogaModel.YogaName} $textType,
     ${YogaModel.ImageName} $textType,
-    ${YogaModel.SecondsOrNot} $boolType
+    ${YogaModel.SecondsOrNot} $boolType,
+    ${YogaModel.SecondsOrTimes} $textType
     )''');
 
     await db.execute('''
@@ -50,7 +52,8 @@ class YogaDatabase {
     ${YogaModel.IDName} $idType,
     ${YogaModel.YogaName} $textType,
     ${YogaModel.ImageName} $textType,
-    ${YogaModel.SecondsOrNot} $boolType
+    ${YogaModel.SecondsOrNot} $boolType,
+    ${YogaModel.SecondsOrTimes} $textType
     )''');
 
     await db.execute('''
@@ -71,7 +74,7 @@ class YogaDatabase {
 
   Future<YogaSummary?> InsertYogaSummary(YogaSummary yogaSummary) async{
     final db = await instance.database;
-    final id = await db!.insert(YogaModel.YogaTable1, yogaSummary.toJson());
+    final id = await db!.insert(YogaModel.YogaSummary, yogaSummary.toJson());
     return yogaSummary.copy(id: id);
   }
 
